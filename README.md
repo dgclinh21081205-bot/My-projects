@@ -1,41 +1,73 @@
 # My-projects
 A few of my projects during the academic year
 
-**Debt-Risk Classification Pipeline** | 07/2026
+# Selected Projects
 
-• Built an end-to-end Python pipeline to classify Vietnamese banking records into 5 debt-risk groups, covering data preparation, feature screening, model validation, and interpretation.
+I can only publish two of my projects publicly. The following projects showcase my experience in **machine learning, credit risk analysis, data preprocessing, exploratory data analysis, and model interpretation**.
 
-• Applied leakage-safe feature selection using VIF and mutual information within the training set; compared multiple classifiers, with XGBoost achieving 91.8% accuracy.
+## 1. Debt Group Classification with Machine Learning
 
-• Used SHAP to identify and communicate key risk drivers for credit-risk analysis.
+An end-to-end machine learning pipeline for classifying Vietnamese loan records into **5 debt-risk groups** using `NHOMNO` and `NHOMNOMOI` as target variables.
 
-**Spotify Music Trends: Exploratory Analysis and Visualization** | 06/2026
+### Key Work
 
-• Analyzed 7,000+ Spotify tracks in Python (pandas, Matplotlib, Seaborn), covering data cleaning, outlier detection, distribution analysis, and correlation analysis of popularity drivers.
+* Cleaned and standardized approximately 27,000 labeled loan records, including mixed date formats, locale-specific numerical formats, inconsistent labels, duplicates, and logical inconsistencies.
+* Engineered credit-risk features including loan term, loan age, remaining days, utilization, and log-transformed balances.
+* Applied **leakage-safe feature selection** using VIF and mutual information on the training set only.
+* Compared Logistic Regression, Random Forest, XGBoost, and SVM using cross-validation and validation-set model selection.
+* Applied **SMOTE within cross-validation folds** and class weighting to address severe class imbalance.
+* Used per-class threshold tuning to improve minority-class F1 performance.
+* Applied **SHAP** to interpret model predictions and identify key credit-risk drivers.
+* Selected XGBoost as the best-performing model, achieving a test F1-macro of **0.630 for NHOMNO** and **0.606 for NHOMNOMOI**.
 
-• Translated findings into visualizations highlighting audience engagement and music trends.
+### Key Findings
 
-**Profitability Drivers of S&P 500 Firms (2021–2025)** | 06/2026
+The most important predictors included **remaining days to maturity, loan purpose, product type, utilization, loan age, and exposure size**. Misclassifications were concentrated between adjacent debt groups, reflecting the continuous nature of debt-risk boundaries.
 
-• Analyzed a panel of 503 S&P 500 firms (2,332 observations) in R; selected Difference GMM based on Anderson–Hsiao and System GMM diagnostics, with Sargan, AR(2), and Wald tests.
+### Technologies
 
-• Found profitability was driven mainly by net margin and asset turnover rather than firm size or liquidity; translated findings into practical recommendations.
+**Python, pandas, NumPy, scikit-learn, XGBoost, imbalanced-learn, SHAP, statsmodels, Jupyter Notebook**
 
-**Forecasting the US Unemployment Rate** | 03/2026
+---
 
-• Forecast monthly US unemployment using FRED data (2015–2024) with benchmark, exponential smoothing, regression, and lagged models.
+## 2. Spotify Track Popularity & Trends Visualization
 
-• Reduced MAPE from 1.70% to 1.52% using a lagged OLS model after conducting econometric diagnostics, and generated a six-month forecast.
+An exploratory data analysis and visualization project investigating factors associated with **Spotify track popularity and music trends** using a dataset of more than 8,500 tracks.
 
-Financial Inclusion, Bank Competition and Bank Stability in Emerging Asia | 10/2025 – 04/2026
+### Key Work
 
-• Collected and integrated panel data on 109 commercial banks across 9 emerging Asian economies (2008–2023) from Refinitiv DataStream, World Bank WDI, and IMF Financial Access Survey.
+* Cleaned and prepared Spotify track data, including missing-value treatment and outlier detection.
+* Applied log transformation to highly skewed variables such as artist follower counts.
+* Encoded categorical variables using one-hot encoding.
+* Conducted distribution analysis using histograms, KDE plots, and boxplots.
+* Examined relationships between track popularity, artist popularity, artist followers, album characteristics, and track duration.
+* Used correlation analysis and pairplots to identify relationships among key variables.
+* Compared average track popularity across album types.
 
-• Constructed a PCA-based Financial Inclusion Index and engineered bank stability and market concentration measures; estimated OLS, FE, RE, and two-step System GMM models with robustness checks.
+### Key Findings
 
-• Found that financial inclusion improved capital, credit-risk, and liquidity stability, with stronger effects in more competitive banking markets.
+* `artist_popularity` showed a moderate positive relationship with `track_popularity` (**r = 0.47**).
+* `artist_followers` was strongly correlated with `artist_popularity` (**r = 0.64**) but had only a weak relationship with `track_popularity` (**r = 0.23**).
+* Album tracks had the highest average popularity (**55.66**), followed by singles (**46.36**) and compilations (**40.54**).
+* Track duration showed no meaningful relationship with popularity.
 
+### Technologies
 
-and other projects
+**Python, pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook**
 
-I can only publish two of these projects.
+---
+
+## Project Focus
+
+These projects demonstrate practical experience in:
+
+* Data cleaning and preprocessing
+* Feature engineering
+* Exploratory data analysis
+* Machine learning classification
+* Imbalanced-data handling
+* Cross-validation and model selection
+* Data leakage prevention
+* Model interpretation with SHAP
+* Statistical analysis and visualization
+* Translating analytical results into actionable insights
